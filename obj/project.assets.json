@@ -81,11 +81,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\natal\\PortfolioBackend\\PortfolioBackend.csproj",
+      "projectUniqueName": "C:\\Users\\natal\\OneDrive\\Escritorio\\Daniel C\\Portfolio backend\\PortfolioBackend\\PortfolioBackend.csproj",
       "projectName": "PortfolioBackend",
-      "projectPath": "C:\\Users\\natal\\PortfolioBackend\\PortfolioBackend.csproj",
+      "projectPath": "C:\\Users\\natal\\OneDrive\\Escritorio\\Daniel C\\Portfolio backend\\PortfolioBackend\\PortfolioBackend.csproj",
       "packagesPath": "C:\\Users\\natal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\natal\\PortfolioBackend\\obj\\",
+      "outputPath": "C:\\Users\\natal\\OneDrive\\Escritorio\\Daniel C\\Portfolio backend\\PortfolioBackend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

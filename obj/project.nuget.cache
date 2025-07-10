@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RUrgMHCXWAs=",
+  "dgSpecHash": "WmvBhx3B2qs=",
   "success": true,
-  "projectFilePath": "C:\\Users\\natal\\PortfolioBackend\\PortfolioBackend.csproj",
+  "projectFilePath": "C:\\Users\\natal\\OneDrive\\Escritorio\\Daniel C\\Portfolio backend\\PortfolioBackend\\PortfolioBackend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\natal\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
     "C:\\Users\\natal\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"

@@ -1,0 +1,10 @@
+bin/
+obj/
+*.user
+*.vspscc
+*.suo
+*.db
+*.appsettings.Development.json
+*.appsettings.json
+*.pdb
+*.dll

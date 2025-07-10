@@ -1,14 +1,14 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Habilitar controladores
+// Controladores
 builder.Services.AddControllers();
 
-// Habilitar CORS para permitir peticiones desde Angular
+// Configurar CORS para Angular
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200") // puerto de Angular
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
@@ -21,11 +21,11 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-// Habilitar HTTPS y CORS
 app.UseHttpsRedirection();
 app.UseCors("AllowAngularApp");
 
-// Usar controladores
+app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

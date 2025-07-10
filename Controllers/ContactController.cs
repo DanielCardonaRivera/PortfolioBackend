@@ -1,4 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using PortfolioBackend.Models;
+using System.Net;
+using System.Net.Mail;
 
 namespace PortfolioBackend.Controllers
 {
@@ -6,19 +9,48 @@ namespace PortfolioBackend.Controllers
     [Route("api/[controller]")]
     public class ContactController : ControllerBase
     {
-        [HttpPost]
-        public IActionResult Send([FromBody] ContactForm form)
+        [HttpGet("ping")]
+        public IActionResult Ping()
         {
-            // Aquí podrías enviar un correo o guardar en una base de datos
-            Console.WriteLine($"Mensaje de: {form.Name} - {form.Email} - {form.Message}");
-            return Ok(new { message = "Mensaje recibido correctamente." });
+            return Ok("API funcionando correctamente");
         }
-    }
 
-    public class ContactForm
-    {
-        public string Name { get; set; } = "";
-        public string Email { get; set; } = "";
-        public string Message { get; set; } = "";
+        [HttpPost]
+        public IActionResult SendEmail(ContactRequest request)
+        {
+            try
+            {
+                var fromAddress = new MailAddress("tucorreo@gmail.com", "Portafolio Web");
+                var toAddress = new MailAddress("tucorreo@gmail.com", "Daniel");
+                const string fromPassword = "mi_app_password"; //Contraseña de aplicación de Gmail
+
+                string subject = $"Nuevo mensaje de {request.Name}";
+                string body = $"Nombre: {request.Name}\nCorreo: {request.Email}\n\nMensaje:\n{request.Message}";
+
+                var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+                };
+
+                using var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body
+                };
+
+                smtp.Send(message);
+
+                return Ok(new { message = "Correo enviado correctamente." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { message = "Error al enviar el correo.", error = ex.Message });
+            }
+        }
     }
 }
